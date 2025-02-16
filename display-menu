@@ -1,0 +1,13 @@
+#!/bin/sh
+CHOICE=$(echo -e "mirror\nduplicate\nextend-right\nextend-left\nextend-top\nextend-bottom\nprimary-only\nsecondary-only" | dmenu -p "display:")
+
+case "$CHOICE" in
+    mirror) mons -m ;;
+    duplicate) mons -d ;;
+    extend-right) mons -e right ;;
+    extend-left) mons -e left ;;
+    extend-top) mons -e top ;;
+    extend-bottom) mons -e bottom ;;
+    primary-only) mons -o ;;
+    secondary-only) mons -s ;;
+esac

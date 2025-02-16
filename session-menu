@@ -1,0 +1,9 @@
+#!/bin/sh
+CHOICE=$(echo -e "exit\nsuspend\nhalt\nreboot" | dmenu -p "$(whoami):")
+
+case "$CHOICE" in
+    exit) pkill dwm ;;
+    suspend) systemctl suspend ;;
+    halt) systemctl poweroff ;;
+    reboot) reboot ;;
+esac
