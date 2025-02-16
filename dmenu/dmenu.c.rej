@@ -1,0 +1,31 @@
+--- dmenu.c
++++ dmenu.c
+@@ -26,16 +26,14 @@
+ #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
+ 
+ /* enums */
+-enum { SchemeNorm, SchemeSel, SchemeHp, SchemeOut, SchemeLast }; /* color schemes */
++enum { SchemeNorm, SchemeSel, SchemeOut, SchemeLast }; /* color schemes */
+ 
+ struct item {
+ 	char *text;
+ 	struct item *left, *right;
+-	int out, hp;
++	int out;
+ };
+ 
+-static const char **hpitems = NULL;
+-static int hplength = 0;
+ static char text[BUFSIZ] = "";
+ static char *embed;
+ static int bh, mw, mh;
+@@ -713,8 +666,7 @@ static void
+ usage(void)
+ {
+ 	die("usage: dmenu [-bfiv] [-l lines] [-p prompt] [-fn font] [-m monitor]\n"
+-	    "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]\n"
+-	    "             [-hb color] [-hf color] [-hp items]");
++	    "             [-nb color] [-nf color] [-sb color] [-sf color] [-w windowid]");
+ }
+ 
+ int
